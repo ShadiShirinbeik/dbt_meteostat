@@ -1,8 +1,9 @@
 WITH date_parts AS (
     SELECT 
+        *,
     	timestamp::date AS date,
     	timestamp::time AS time,
-    	DATE_PART('hour', timestamp) AS hour,
+    	TO_CHAR(timestamp,'HH24:MI') as hour,
     	TO_CHAR(timestamp, 'FMMonth') AS month_name,
     	TO_CHAR(timestamp, 'FMDay') AS week_day,
     	DATE_PART('day', timestamp) as date_day,
