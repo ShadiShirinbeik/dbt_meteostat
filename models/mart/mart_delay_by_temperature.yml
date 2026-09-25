@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_delay_by_temperature
+    description: >
+      Average departure delay by temperature band at the origin airport,
+      using hourly weather matched to the scheduled departure hour.
+      Delay peaks near freezing (-5 to 0 C), not at the coldest temperatures.
+    columns:
+      - name: temp_band
+        description: Temperature band of the origin airport at the scheduled departure hour
+        tests:
+          - unique
+          - not_null
+      - name: flights
+        description: Number of completed flights in this band
+        tests:
+          - not_null
+      - name: avg_dep_delay_min
+        description: Average departure delay in minutes
+        tests:
+          - not_null
