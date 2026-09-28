@@ -1,6 +1,6 @@
 WITH source_data AS (
     SELECT *
-    FROM {{ source('northwind', 'products') }}
+    FROM {{ source('northwind_data', 'products') }}
 )
 SELECT *,
     unit_price::NUMERIC,
