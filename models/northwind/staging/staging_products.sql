@@ -2,8 +2,5 @@ WITH source_data AS (
     SELECT *
     FROM {{ source('northwind_data', 'products') }}
 )
-SELECT *,
-    unit_price::NUMERIC,
-	units_in_stock::INT, 
-	units_on_order::INT
+SELECT *
 FROM source_data
